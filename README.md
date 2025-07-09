@@ -42,7 +42,7 @@ Developed two dashboards using Power BI connected to a PostgreSQL database:
   - Define data types and constraints 
   - Upload CSV data using COPY command
 
-- Drive Link to SQL Scripts: [Insert Your Link Here]
+- Drive Link to SQL Scripts: [https://docs.google.com/document/d/110cCcxli49-adrYy1phB_Zh081uNnczWL7wwGtZUVqQ/edit?usp=sharing]
 
 ### 3. Connecting Power BI to PostgreSQL
 - Connected via localhost and database name
