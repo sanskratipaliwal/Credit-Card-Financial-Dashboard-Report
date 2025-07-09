@@ -61,7 +61,87 @@ Developed two dashboards using Power BI connected to a PostgreSQL database:
   - % Change in RevenueTop 5 States by Revenue
 
 
-- All DAX measures will be listed in the appendix of this presentation.
+
+**📈DAX formula used for calculation -**
+
+***Calculated Measure->***
+
+**1. Current_week_revenue:**
+
+Current_week_revenue = 
+    CALCULATE( 
+    SUM('public cc_detail'[Revenue]),
+    
+  FILTER(
+        
+  ALL('public cc_detail'),
+        'public cc_detail'[week_num2] = MAX('public cc_detail'[week_num2])
+    )
+)
+
+
+
+
+
+
+**2. Previos_week_revenue:** 
+
+  Previos_week_revenue = CALCULATE( 
+    SUM('public cc_detail'[Revenue]),
+    
+  FILTER(
+    
+  ALL('public cc_detail'),
+        'public cc_detail'[week_num2] = MAX('public cc_detail'[week_num2])-1
+    )
+)
+
+
+
+
+
+
+**3. Week NUmber:**
+   
+  week_num2 = WEEKNUM('public cc_detail'[week_start_date])
+
+
+
+***Calculated column->***    
+
+**4. New Column calculated Age group using Switch Function:**
+
+AgeGroup = SWITCH(
+    TRUE(),
+     'public cust_detail'[customer_age] < 30, "20-30", 
+  
+  'public cust_detail'[customer_age] >=30 && 'public cust_detail'[customer_age] < 40, "30-40",
+  
+  'public cust_detail'[customer_age] >= 40 && 'public cust_detail'[customer_age] < 50, "40-50",
+  
+  'public cust_detail'[customer_age] >= 50 && 'public cust_detail'[customer_age] < 60, "50-60",
+  
+  'public cust_detail'[customer_age] >= 60, "60+"
+
+  )
+
+
+
+
+
+**5. New Column Calculated "Income Group" using Switch Function:**
+
+IncomeGroup = SWITCH(
+     TRUE(),
+     
+  'public cust_detail'[income] < 35000, "Low",
+     
+  'public cust_detail'[income] >= 35000 && 'public cust_detail'[income] < 70000, "Med",
+     
+  'public cust_detail'[income] >= 70000, "High",
+     
+  "Unknown")
+
 
 
 ### 5. Dashboard 1: Transaction Insights
@@ -117,83 +197,7 @@ This project helped simulate a real-world credit card analytics use case. It sup
 
 --- 
 
-**DAX formula used for calculation -**
-
-**1. Current_week_revenue:**
-
-Current_week_revenue = 
-    CALCULATE( 
-    SUM('public cc_detail'[Revenue]),
-    
-  FILTER(
-        
-  ALL('public cc_detail'),
-        'public cc_detail'[week_num2] = MAX('public cc_detail'[week_num2])
-    )
-)
 
 
-
-
-
-
-**2. Previos_week_revenue:** 
-
-  Previos_week_revenue = CALCULATE( 
-    SUM('public cc_detail'[Revenue]),
-    
-  FILTER(
-    
-  ALL('public cc_detail'),
-        'public cc_detail'[week_num2] = MAX('public cc_detail'[week_num2])-1
-    )
-)
-
-
-
-
-
-
-**3. Week NUmber:**
-    week_num2 = WEEKNUM('public cc_detail'[week_start_date])
-
-
-
-    
-
-**4. New Column calculated Age group using Switch Function**
-
-AgeGroup = SWITCH(
-    TRUE(),
-     'public cust_detail'[customer_age] < 30, "20-30", 
-  
-  'public cust_detail'[customer_age] >=30 && 'public cust_detail'[customer_age] < 40, "30-40",
-  
-  'public cust_detail'[customer_age] >= 40 && 'public cust_detail'[customer_age] < 50, "40-50",
-  
-  'public cust_detail'[customer_age] >= 50 && 'public cust_detail'[customer_age] < 60, "50-60",
-  
-  'public cust_detail'[customer_age] >= 60, "60+"
-
-  )
-
-
-
-
-
-**5. New Column Calculated "Income Group" using Switch Function**
-
-IncomeGroup = SWITCH(
-     TRUE(),
-     
-  'public cust_detail'[income] < 35000, "Low",
-     
-  'public cust_detail'[income] >= 35000 && 'public cust_detail'[income] < 70000, "Med",
-     
-  'public cust_detail'[income] >= 70000, "High",
-     
-  "Unknown")
-
-
-
+**Thank You! Have a great Day.**
 
