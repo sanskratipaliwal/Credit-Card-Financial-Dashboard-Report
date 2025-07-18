@@ -172,7 +172,8 @@ IncomeGroup = SWITCH(
 ---
 
 ### 🔍 Key Insights Extracted
-- **Revenue increased by 28.8%** week-over-week
+- **Revenue increased by 28.8%**
+- **Total transaction amount & count increased by 35% & 3.4%**
 - **TX, NY, CA** contributed 68% of total revenue
 - **Blue & Silver cardholders** made up **93%** of transactions
 - **Male customers** generated **₹31M vs. ₹26M** by females
