@@ -31,7 +31,7 @@ Developed two dashboards using Power BI connected to a `PostgreSQL database:`
 
 ### ✅ Project Workflow
 
-`### 1. Data Collection`
+### `1. Data Collection`
 - collected open-source datasets simulating credit card customer and transaction data.
 
 - Ensured reliability, column consistency, and availability of key fields like client num, state, revenue, income, etc.
