@@ -36,7 +36,7 @@ Developed two dashboards using Power BI connected to a `PostgreSQL database:`
 
 - Ensured reliability, column consistency, and availability of key fields like client num, state, revenue, income, etc.
 
-`### 2. Data Upload & Structuring (PostgreSQL)`
+### `2. Data Upload & Structuring (PostgreSQL)`
 - Used SQL scripts to:
   - Create customer and transaction tables
   - Define data types and constraints 
@@ -44,16 +44,16 @@ Developed two dashboards using Power BI connected to a `PostgreSQL database:`
 
 - Drive Link to SQL Scripts: [https://docs.google.com/document/d/110cCcxli49-adrYy1phB_Zh081uNnczWL7wwGtZUVqQ/edit?usp=sharing]
 
-`### 3. Connecting Power BI to PostgreSQL`
+### `3. Connecting Power BI to PostgreSQL`
 - Connected via localhost and database name
 - Let Power BI auto-detect relationships based on client num
 - Verified and reviewed relationships in model view
 
-`### 4. Data Transformation (in Power BI)`
+### `4. Data Transformation (in Power BI)`
 - Created calculated columns using DAX:
-  - Age Group (18–25, 26–35, etc.)
-  - Income Group (Low, Medium, High)
-  - Week Number for time-based analysis
+  - `Age Group` (18–25, 26–35, etc.)
+  - `Income Group` (Low, Medium, High)
+  - `Week Number` for time-based analysis
 
 
 - Created DAX Measures:
@@ -62,9 +62,9 @@ Developed two dashboards using Power BI connected to a `PostgreSQL database:`
 
 
 
-`**📈DAX formula used for calculation -**`
+**`📈DAX formula used for calculation -`**
 
-`***Calculated Measure->***`
+***`Calculated Measure->`***
 
 **1. Current_week_revenue:**
 
@@ -106,10 +106,9 @@ Current_week_revenue =
   week_num2 = WEEKNUM('public cc_detail'[week_start_date])
 
 
+***`Calculated column->`***   
 
-`***Calculated column->***`    
-
-`**4. New Column calculated Age group using Switch Function:**`
+**`4. New Column calculated Age group using Switch Function:`**
 
 AgeGroup = SWITCH(
     TRUE(),
@@ -129,7 +128,7 @@ AgeGroup = SWITCH(
 
 
 
-`**5. New Column Calculated "Income Group" using Switch Function:**`
+**`5. New Column Calculated "Income Group" using Switch Function:`**
 
 IncomeGroup = SWITCH(
      TRUE(),
@@ -144,7 +143,7 @@ IncomeGroup = SWITCH(
 
 
 
-`### 5. Dashboard 1: Transaction Insights`
+### `5. Dashboard 1: Transaction Insights`
 **Key KPIs:**
 - Total Revenue
 - Total Transaction Amount
@@ -157,7 +156,7 @@ IncomeGroup = SWITCH(
 - Treemaps (Transaction distribution with slicer)
 
 
-`### 6. Dashboard 2: Customer Segmentation`
+### `6. Dashboard 2: Customer Segmentation`
 **Key KPIs:**
 - Revenue, Income
 - Customer Satisfaction Score (CSS)
